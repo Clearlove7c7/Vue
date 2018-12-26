@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.component-1全局组件</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue.component-1全局组件</h1>
+<hr>
+<div id="app">
+    {{message}}
+    <zhaolc></zhaolc>
+    <girls></girls>
+</div>
+
+<script type="text/javascript">
+    Vue.component('zhaolc', {
+        template: `<div style="color: chartreuse">全局的组件</div>`
+    })
+
+    var app = new Vue({
+        el: '#app',
+        components: {
+            "girls":{
+                template: `<div style="color: darkviolet">全局的Girl组件</div>`
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

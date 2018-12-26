@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text&v-html</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-text&v-html</h1>
+<hr>
+<div id="app">
+    <span>{{message}}</span><span v-text="message"></span><br/>
+    <!--尽量少用v-html,会引起黑客xss攻击,尤其是提交表单的页面-->
+    <span v-html="dodo"></span>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好',
+            dodo:'<h2>你好</h2>'
+        }
+    })
+</script>
+</body>
+</html>

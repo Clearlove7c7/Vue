@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example methods</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h1>example methods Demo</h1>
+<hr>
+<div id="app">
+    <p>{{message}}</p>
+</div>
+
+<script type="text/javascript">
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'新消息'
+        },
+        mounted:function () {
+            $('#app').html('我是jQuery挂载的DOM对象');
+        },
+        methods:{
+            add:function () {
+                console.log('调用构造器内部的Add方法!')
+
+            }
+        }
+    })
+    app.add();
+</script>
+</body>
+</html>

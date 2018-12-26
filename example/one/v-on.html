@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-on</h1>
+<hr>
+<div id="app">
+    本场得分：{{total}}
+    <p>
+        <button v-on:click="add">加分</button><button @click="del">减分</button><br/>
+    <input type="text" v-on:keyup.13="onEnter" v-model="total2">
+    </p>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            total:0,
+            total2:0
+        },
+        methods:{
+            add:function () {
+                this.total++;
+            },
+            del:function () {
+                this.total--;
+            },
+            onEnter:function () {
+              this.total=this.total+parseInt(this.total2);
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

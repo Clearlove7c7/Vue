@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+    <p><img v-bind:src="imgSrc" width="200px"></p>
+    <p><a :href="webUrl" target="_blank">赵林超</a></p>
+    <hr>
+    <div :class="className">1、绑定Class</div>
+    <div :class="{classA:isOk}">2、绑定Class判断</div>
+    <div :class="[classA,classB]">3、绑定Class中的数组</div>
+    <div :class="isOk?classA:classB">4、绑定Class中的三元运算符</div>
+    <div>
+        <input type="checkbox" id="isOk" v-model="isOk">
+        <label for="isOk">变色</label>
+    </div>
+    <hr>
+    <div :style="{color:blue,fontSize:font}">5、绑定Style</div>
+    <div :style="styleObject">6、绑定Style</div>
+
+
+
+</div>
+<style type="text/css">
+    .classA{
+        color:red;
+    }
+    .classB{
+        font-size: 150%;
+    }
+
+</style>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            imgSrc: 'https://wallpapers.wallhaven.cc/wallpapers/thumb/small/th-698419.jpg',
+            webUrl: 'https://www.baidu.com',
+            className:'classA',
+            isOk:false,
+            classA:'classA',
+            classB:'classB',
+            blue:'blue',
+            font:'23px',
+            styleObject:{
+                color:'pink',
+                fontSize:'18'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

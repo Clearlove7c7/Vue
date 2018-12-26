@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.component-2全局组件</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>Vue.component-2全局组件</h1>
+<hr>
+<div id="app">
+    <girls v-bind:here="message"></girls>
+</div>
+
+<script type="text/javascript">
+
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message:'HeNan'
+        },
+        components: {
+            "girls":{
+                template: `<div style="color: darkviolet">Girls from {{here}}</div>`,
+                props:['here']
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example Mthods Demo</title>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+</head>
+<body>
+<h1>example Mthods Demo</h1>
+<hr>
+<div id="app">
+
+</div>
+<p><button onclick="destory()">销毁</button></p>
+<p><button onclick="reload()">刷新</button></p>
+<p><button onclick="tick()">更新数据</button></p>
+<script type="text/javascript">
+    const zhaolc = Vue.extend({
+        template:`<p>{{message}}</p>`,
+        data:function () {
+            return{
+                message:'NO.1,zzZ'
+            }
+        },
+        mounted:function () {
+            console.log('mounted 被创建！');
+        },
+        destroyed:function () {
+            console.log('destory 被销毁！')
+        },
+        updated:function () {
+            console.log('updated 刷新！')
+        }
+    })
+    function destory() {
+        vm.$destroy();
+    }
+    function reload() {
+        vm.$forceUpdate();
+    }
+    function tick() {
+        vm.message= 'updated message info';
+        vm.$nextTick(function () {
+            console.log('message更新完后被我调用')
+        })
+    }
+    const vm = new zhaolc().$mount('#app');
+</script>
+</body>
+</html>
